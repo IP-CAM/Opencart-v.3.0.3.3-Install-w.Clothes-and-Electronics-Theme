@@ -1,8 +1,8 @@
 <?php
 // Text
 $_['text_api']                  = 'API';
-$_['text_attribute']            = 'Attributes';
-$_['text_attribute_group']      = 'Attribute Groups';
+$_['text_attribute']            = 'Specification';
+$_['text_attribute_group']      = 'Specification Groups';
 $_['text_backup']               = 'Backup / Restore';
 $_['text_banner']               = 'Banners';
 $_['text_catalog']              = 'Catalog';
