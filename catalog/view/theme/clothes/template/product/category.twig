@@ -24,6 +24,7 @@
         {% endif %}</div>
       <hr>
       {% endif %}
+      <!--  by shopgeni    
       {% if categories %}
       <h3>{{ text_refine }}</h3>
       {% if categories|length <= 5 %}
@@ -49,15 +50,18 @@
       <br />
       {% endif %}
       {% endif %}
+      -->
       {% if products %}
       <div class="row">
-        <div class="col-md-2 col-sm-6 hidden-xs">
+        
+        <div class="col-md-2 col-sm-6 hidden-xs" style="display:none;">
           <div class="btn-group btn-group-sm">
             <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
             <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        
+        <div class="col-md-3 col-sm-6" style="display:none;">
           <div class="form-group"><a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a></div>
         </div>
         <div class="col-md-4 col-xs-6">
@@ -132,12 +136,12 @@
             <div>
               <div class="caption">
                 <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
-                <p>{{ product.description }}</p>
+                <!-- <p>{{ product.description }}</p> -->
                 {% if product.price %}
                 <p class="price"> {% if not product.special %}
                   {{ product.price }}
                   {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
-                  {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+                  <!-- {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} --></p>
                 {% endif %}
                 {% if product.rating %}
                 <div class="rating"> {% for i in 1..5 %}

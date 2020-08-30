@@ -1,11 +1,11 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://ac458b4025a4.ngrok.io/opencart-final/admin/');
-define('HTTP_CATALOG', 'http://ac458b4025a4.ngrok.io/opencart-final/');
+define('HTTP_SERVER', 'http://localhost/opencart-final/admin/');
+define('HTTP_CATALOG', 'http://localhost/opencart-final/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://ac458b4025a4.ngrok.io/opencart-final/admin/');
-define('HTTPS_CATALOG', 'http://ac458b4025a4.ngrok.io/opencart-final/');
+define('HTTPS_SERVER', 'http://localhost/opencart-final/admin/');
+define('HTTPS_CATALOG', 'http://localhost/opencart-final/');
 
 // DIR
 define('DIR_APPLICATION', 'C:/xampp/htdocs/opencart-final/admin/');
