@@ -178,37 +178,87 @@
             </div>
             {% endif %}
             {% if option.type == 'radio' %}
-            <div class="form-group{% if option.required %} required {% endif %}">
-              <label class="control-label">{{ option.name }}</label>
-              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
-                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}                  
-                    {{ option_value.name }}
-                    {% if option_value.price %}
-                    ({{ option_value.price_prefix }}{{ option_value.price }})
-                    {% endif %} </label>
-                </div>
-                {% endfor %} </div>
-            </div>
-            {% endif %}
+						<div class="form-group{% if option.required %} required {% endif %}">
+						  	<label class="control-label">{{ option.name }}</label>
+							<div id="input-option{{ option.product_option_id }}">
+								{% set radio_style 	 = 'radio-type-button' %}
+								{% set radio_type 	 = radio_style ? ' radio-type-button':'' %}
+
+								{% for option_value in option.product_option_value %} 
+								{% set radio_image 	=  option_value.image ? 'option_image' : '' %} 
+								{% set radio_price 	=  radio_style ? option_value.price_prefix ~ option_value.price : '' %} 
+								
+									<div class="radio {{ radio_image ~ radio_type }}">
+										<label>							
+											<input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
+											<span class="option-content-box" data-title="{{ option_value.name}} {{ radio_price }}" data-toggle='tooltip'>
+												{% if option_value.image %} 
+													<img src="{{ option_value.image }} " alt="{{ option_value.name}}  {{radio_price}}" /> 
+												{% endif %} 
+												<span class="option-name">{{ option_value.name }} </span>
+												<!--{% if option_value.price  and  radio_style  != '1' %} ({{ option_value.price_prefix }} {{ option_value.price }} ){% endif %} -->
+											  
+											</span>
+										</label>
+									</div>
+								{% endfor %}	
+								 
+								{% if radio_style %} 
+								<script type="text/javascript">
+									 $(document).ready(function(){
+										  $('#input-option{{ option.product_option_id }} ').on('click', 'span', function () {
+											   $('#input-option{{ option.product_option_id }}  span').removeClass("active");
+											   $(this).toggleClass("active");
+										  });
+									 });
+								</script>
+								{% endif %} 
+
+							</div>
+						</div>
+						{% endif %}
             {% if option.type == 'checkbox' %}
-            <div class="form-group{% if option.required %} required {% endif %}">
-              <label class="control-label">{{ option.name }}</label>
-              <div id="input-option{{ option.product_option_id }}"> {% for option_value in option.product_option_value %}
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
-                    {% if option_value.image %} <img src="{{ option_value.image }}" alt="{{ option_value.name }} {% if option_value.price %} {{ option_value.price_prefix }} {{ option_value.price }} {% endif %}" class="img-thumbnail" /> {% endif %}
-                    {{ option_value.name }}
-                    {% if option_value.price %}
-                    ({{ option_value.price_prefix }}{{ option_value.price }})
-                    {% endif %} </label>
-                </div>
-                {% endfor %} </div>
-            </div>
-            {% endif %}
+						<div class="form-group{% if option.required %} required {% endif %}">
+						  	<label class="control-label">{{ option.name }}</label>
+						  	<div id="input-option{{ option.product_option_id }}">
+								{% set radio_style 	 = 'radio-type-button' %}
+								{% set radio_type 	 = radio_style ? ' radio-type-button':'' %}
+
+								{% for option_value in option.product_option_value %} 
+								{% set radio_image 	=  option_value.image ? 'option_image' : '' %} 
+								{% set radio_price 	=  radio_style ? option_value.price_prefix ~ option_value.price : '' %} 
+								
+									<div class="checkbox  {{ radio_image ~ radio_type }}">
+										<label>
+											<input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
+											<span class="option-content-box" data-title="{{ option_value.name}} {{ radio_price }}" data-toggle='tooltip'>
+												{% if option_value.image %} 
+													<img src="{{ option_value.image }} " alt="{{ option_value.name}}  {{radio_price}}" /> 
+												{% endif %} 
+
+												<span class="option-name">{{ option_value.name }} </span>
+												{% if option_value.price  and  radio_style  != '1' %} 
+													({{ option_value.price_prefix }} {{ option_value.price }} )
+												{% endif %} 
+											  
+											</span>
+										</label>
+									</div>
+								{% endfor %}	
+								 
+								{% if radio_style %} 
+								<script type="text/javascript">
+									 $(document).ready(function(){
+										  $('#input-option{{ option.product_option_id }} ').on('click', 'span', function () {
+											   $(this).toggleClass("active");
+										  });
+									 });
+								</script>
+								{% endif %} 
+
+							</div>
+						</div>
+						{% endif %}
             {% if option.type == 'text' %}
             <div class="form-group{% if option.required %} required {% endif %}">
               <label class="control-label" for="input-option{{ option.product_option_id }}">{{ option.name }}</label>
@@ -638,4 +688,27 @@ $(".input-number").keydown(function (e) {
 <!-- end custom by shopgeni -->
 
 //--></script> 
+
+<script type="text/javascript">
+var ajax_price = function() {
+	$.ajax({
+		type: 'POST',
+		url: 'index.php?route=extension/soconfig/liveprice/index',
+		data: $('.product-detail input[type=\'text\'], .product-detail input[type=\'hidden\'], .product-detail input[type=\'radio\']:checked, .product-detail input[type=\'checkbox\']:checked, .product-detail select, .product-detail textarea'),
+		dataType: 'json',
+			success: function(json) {
+			if (json.success) {
+				change_price('#price-special', json.new_price.special);
+				change_price('#price-tax', json.new_price.tax);
+				change_price('#price-old', json.new_price.price);
+			}
+		}
+	});
+}
+
+var change_price = function(id, new_price) {$(id).html(new_price);}
+$('.product-detail input[type=\'text\'], .product-detail input[type=\'hidden\'], .product-detail input[type=\'radio\'], .product-detail input[type=\'checkbox\'], .product-detail select, .product-detail textarea, .product-detail input[name=\'quantity\']').on('change', function() {
+	ajax_price();
+});
+</script>
 {{ footer }} 

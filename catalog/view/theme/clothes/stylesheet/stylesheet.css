@@ -45,7 +45,7 @@ legend {
 	padding: 7px 0px
 }
 label {
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: normal;
 }
 select.form-control, textarea.form-control, input[type="text"].form-control, input[type="password"].form-control, input[type="datetime"].form-control, input[type="datetime-local"].form-control, input[type="date"].form-control, input[type="month"].form-control, input[type="time"].form-control, input[type="week"].form-control, input[type="number"].form-control, input[type="email"].form-control, input[type="url"].form-control, input[type="search"].form-control, input[type="tel"].form-control, input[type="color"].form-control {
@@ -662,6 +662,41 @@ h2.price {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+/* start custom by shopgeni */
+#product .radio-type-button {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 7px 5px 0;
+    padding: 0;
+}
+#product .radio-type-button label {
+    padding: 0;
+	font-size: 14px;	
+}
+#product .radio-type-button input {
+    visibility: hidden;
+}
+#product .radio-type-button .option-content-box.active, #product .radio-type-button .option-content-box.active:hover {
+    background: #666;
+    color: white;
+}
+#product .radio-type-button .option-content-box {
+    background: #d3d5d8;
+    display: block;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.checkbox label, .radio label {
+    min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+/* end custom by shopgeni */
+
 @media (max-width: 1200px) {
 	.product-thumb .button-group button, .product-thumb .button-group button + button {
 		width: 33.33%;
