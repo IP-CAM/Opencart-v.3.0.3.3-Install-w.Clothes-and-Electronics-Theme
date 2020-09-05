@@ -34,10 +34,10 @@
 <body>
 <div id="container">
 <header id="header" class="navbar navbar-static-top">
-  <div class="container-fluid">
+  <div class="container-fluid" style="background-color:#eee">
 
   
-    <div id="header-logo" class="navbar-header"><a href="{{ home }}" class="navbar-brand"><img src="view/image/logo.png" alt="{{ heading_title }}" title="{{ heading_title }}" /></a></div>
+    <div id="header-logo" class="navbar-header"><a href="{{ home }}" class="navbar-brand">{% if logo %}<img src="{{ logo }}" alt="{{ heading_title }}" title="{{ heading_title }}" />{% else %}<h1>Admin Panel</h1>{% endif %}</a></div>
     <a href="#" id="button-menu" class="hidden-md hidden-lg"><span class="fa fa-bars"></span></a>{% if logged %}
     
     

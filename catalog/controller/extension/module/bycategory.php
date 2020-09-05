@@ -27,7 +27,10 @@ public function index($setting) {
 
 		$data['category_link'] = $this->url->link('product/category', 'path=' . $setting['category_id'],'SSL');
 
-		$results = $this->model_catalog_product->getProductsByCategory($setting['category_id'],$setting['limit']);
+		$dataNew['filter_category_id'] = $setting['category_id'];
+		$dataNew['limit'] = $setting['limit'];
+		//$results = $this->model_catalog_product->getProductsByCategory($setting['category_id'],$setting['limit']);
+		$results = $this->model_catalog_product->getProducts($dataNew);
 		//echo $setting['category_id'];
 		foreach ($results as $result) {
 			if ($result['image']) {
