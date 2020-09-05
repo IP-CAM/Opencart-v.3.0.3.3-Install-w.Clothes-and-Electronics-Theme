@@ -1,9 +1,9 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://ac458b4025a4.ngrok.io/opencart-final/');
+define('HTTP_SERVER', 'http://localhost/opencart-final/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://ac458b4025a4.ngrok.io/opencart-final/');
+define('HTTPS_SERVER', 'http://localhost/opencart-final/');
 
 // DIR
 define('DIR_APPLICATION', 'C:/xampp/htdocs/opencart-final/catalog/');
