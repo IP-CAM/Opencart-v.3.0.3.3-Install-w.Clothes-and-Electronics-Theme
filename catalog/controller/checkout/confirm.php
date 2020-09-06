@@ -323,12 +323,19 @@ class ControllerCheckoutConfirm extends Controller {
 
 			$this->session->data['order_id'] = $this->model_checkout_order->addOrder($order_data);
 
+			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
 
 			$data['products'] = array();
 
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
+
+				if ($product['image']) {
+					$image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
+				} else {
+					$image = '';
+				}
 
 				foreach ($product['option'] as $option) {
 					if ($option['type'] != 'file') {
@@ -373,6 +380,7 @@ class ControllerCheckoutConfirm extends Controller {
 
 				$data['products'][] = array(
 					'cart_id'    => $product['cart_id'],
+					'thumb'      => $image,
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
 					'model'      => $product['model'],
