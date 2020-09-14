@@ -9,6 +9,10 @@ class ControllerCommonHeader extends Controller {
 			$data['base'] = HTTP_SERVER;
 		}
 
+		if (is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
+			$data['logo'] = HTTP_CATALOG . 'image/' . $this->config->get('config_logo');
+		} 
+
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
 		$data['links'] = $this->document->getLinks();

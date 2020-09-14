@@ -23,13 +23,14 @@ $_['entry_meta_keyword']     = 'Meta Tag Keywords';
 $_['entry_meta_description'] = 'Meta Tag Description';
 $_['entry_store']            = 'Stores';
 $_['entry_keyword']          = 'Keyword';
-$_['entry_parent']           = 'Parent';
+$_['entry_parent']           = 'Parent Category';
+$_['entry_parent_placeholder']           = 'Select parent category';
 $_['entry_filter']           = 'Filters';
 $_['entry_image']            = 'Image';
-$_['entry_top']              = 'Top';
+$_['entry_top']              = 'Display in Top menu';
 $_['entry_column']           = 'Columns';
 $_['entry_sort_order']       = 'Sort Order';
-$_['entry_status']           = 'Status';
+$_['entry_status']           = 'Category Status';
 $_['entry_layout']           = 'Layout Override';
 
 // Help
