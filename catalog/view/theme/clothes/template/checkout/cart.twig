@@ -31,7 +31,7 @@
     <div id="content" class="{{ class }}">{{ content_top }}
       <h1>{{ heading_title }}
         {% if weight %}
-        &nbsp;({{ weight }})
+        <!-- &nbsp;({{ weight }}) -->
         {% endif %} </h1>
       <form action="{{ action }}" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
@@ -80,7 +80,7 @@
                 <!-- end custom by shopgeni -->  
                   <span class="input-group-btn">
                   <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-times-circle"></i></button>
+                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-trash"></i></button>                  
                   </span></div></td>
               <td class="text-right">{{ product.price }}</td>
               <td class="text-right">{{ product.total }}</td>

@@ -41,6 +41,7 @@ $_['text_month']                     = 'month';
 $_['text_year']                      = 'year';
 
 // Column
+$_['column_image']                   = 'Image';
 $_['column_name']                    = 'Product Name';
 $_['column_model']                   = 'Model';
 $_['column_quantity']                = 'Quantity';

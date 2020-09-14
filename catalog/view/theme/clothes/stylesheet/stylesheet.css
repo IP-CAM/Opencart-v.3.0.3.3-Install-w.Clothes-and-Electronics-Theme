@@ -611,11 +611,11 @@ h2.price {
 }
 .product-thumb .price {	
 	color: #B12704;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 500;
 }
 .product-thumb .price-new {
-	font-weight: 600;
+	font-weight: 500;
 }
 .product-thumb .price-old {
 	color: #999;
@@ -694,6 +694,61 @@ h2.price {
     margin-bottom: 0;
     font-weight: 400;
     cursor: pointer;
+}
+
+.input-group .form-control{
+	text-align: center;
+}
+.price .price-new {
+	font-size: 28px;
+	font-weight: 500;
+	color:#B12704;
+}
+.price .price-old {
+    line-height: 20px;
+    padding: 0 5px;
+    display: inline-block;
+    text-decoration: line-through;
+    color: #999;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+.product-detail h1{
+	font-size:20px;
+	font-weight:500;
+	margin-top:0px;
+}
+#product .cart .btn {
+    background-color: #F78F00;
+    border-radius: 3px;
+    border-color: #B66D06;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px;
+    text-transform: uppercase;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 200px;
+	width: 160px;	
+}
+#product .cart .btn.btn-checkout {
+    margin: 0 15px;
+	background-color: #FB641B ;
+	border-color: #B66D06;
+}
+.product-box-desc {
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+.product-box-desc span {
+    display: inline-block;
+    min-width: 120px;
 }
 /* end custom by shopgeni */
 
