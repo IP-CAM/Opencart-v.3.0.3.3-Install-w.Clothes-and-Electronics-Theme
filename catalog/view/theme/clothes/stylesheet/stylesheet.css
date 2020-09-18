@@ -5,7 +5,7 @@ body {
 	font-size: 14px;
 	line-height: 20px;
 	width: 100%;
-	background: url(http://opencart.templatemela.com/OPC05/OPC050107/catalog/view/theme/OPC050107/image/megnor/body_bg.jpg) repeat scroll left top #ffffff;
+	background: url('../../../../../image/grocery-4.png') repeat scroll left top #ffffff;
 }
 h1, h2, h3, h4, h5, h6 {
 	color: #444;
