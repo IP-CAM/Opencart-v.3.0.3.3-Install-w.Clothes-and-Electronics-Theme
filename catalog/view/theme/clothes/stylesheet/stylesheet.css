@@ -719,6 +719,8 @@ h2.price {
 	font-weight:500;
 	margin-top:0px;
 }
+
+
 #product .cart .btn {
     background-color: #F78F00;
     border-radius: 3px;
@@ -733,8 +735,9 @@ h2.price {
     display: inline-block;
     vertical-align: top;
     max-width: 200px;
-	width: 160px;	
+	width: 145px;	
 }
+
 #product .cart .btn.btn-checkout {
     margin: 0 15px;
 	background-color: #FB641B ;
