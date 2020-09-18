@@ -79,8 +79,9 @@
                     </div>
                 <!-- end custom by shopgeni -->  
                   <span class="input-group-btn">
-                  <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-trash"></i></button>                  
+                 
+                  <button type="submit" data-toggle="tooltip" style="display:none" title="{{ button_update }}" id="btn-refresh" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
+                  <button type="button"  data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-trash"></i></button>                  
                   </span></div></td>
               <td class="text-right">{{ product.price }}</td>
               <td class="text-right">{{ product.total }}</td>
@@ -137,7 +138,7 @@
 //plugin bootstrap minus and plus
 $('.btn-number').click(function(e){
     e.preventDefault();
-    
+  
     fieldName = $(this).attr('data-field');
     type      = $(this).attr('data-type');
     var input = $("input[name='"+fieldName+"']");
@@ -162,6 +163,7 @@ $('.btn-number').click(function(e){
             }
 
         }
+        $('#btn-refresh').click();
     } else {
         input.val(0);
     }
