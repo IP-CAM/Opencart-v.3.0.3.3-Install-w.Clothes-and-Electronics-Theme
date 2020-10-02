@@ -36,6 +36,7 @@ class ControllerCommonFileManager extends Controller {
 
 		$this->load->model('tool/image');
 
+
 		if (substr(str_replace('\\', '/', realpath($directory) . '/' . $filter_name), 0, strlen(DIR_IMAGE . 'catalog')) == str_replace('\\', '/', DIR_IMAGE . 'catalog')) {
 			// Get directories
 			$directories = glob($directory . '/' . $filter_name . '*', GLOB_ONLYDIR);
@@ -55,6 +56,7 @@ class ControllerCommonFileManager extends Controller {
 		// Merge directories and files
 		$images = array_merge($directories, $files);
 
+		
 		// Get total number of files and directories
 		$image_total = count($images);
 
@@ -75,6 +77,7 @@ class ControllerCommonFileManager extends Controller {
 					$url .= '&thumb=' . $this->request->get['thumb'];
 				}
 
+		
 				$data['images'][] = array(
 					'thumb' => '',
 					'name'  => implode(' ', $name),
@@ -83,13 +86,15 @@ class ControllerCommonFileManager extends Controller {
 					'href'  => $this->url->link('common/filemanager', 'user_token=' . $this->session->data['user_token'] . '&directory=' . urlencode(utf8_substr($image, utf8_strlen(DIR_IMAGE . 'catalog/'))) . $url, true)
 				);
 			} elseif (is_file($image)) {
+			
 				$data['images'][] = array(
 					'thumb' => $this->model_tool_image->resize(utf8_substr($image, utf8_strlen(DIR_IMAGE)), 100, 100),
 					'name'  => implode(' ', $name),
 					'type'  => 'image',
 					'path'  => utf8_substr($image, utf8_strlen(DIR_IMAGE)),
-					'href'  => $server . 'image/' . utf8_substr($image, utf8_strlen(DIR_IMAGE))
+					'href'  => DIR_IMAGE . utf8_substr($image, utf8_strlen(DIR_IMAGE))
 				);
+				
 			}
 		}
 
@@ -185,6 +190,7 @@ class ControllerCommonFileManager extends Controller {
 
 		$data['pagination'] = $pagination->render();
 
+	
 		$this->response->setOutput($this->load->view('common/filemanager', $data));
 	}
 
@@ -209,6 +215,7 @@ class ControllerCommonFileManager extends Controller {
 		if (!is_dir($directory) || substr(str_replace('\\', '/', realpath($directory)), 0, strlen(DIR_IMAGE . 'catalog')) != str_replace('\\', '/', DIR_IMAGE . 'catalog')) {
 			$json['error'] = $this->language->get('error_directory');
 		}
+
 
 		if (!$json) {
 			// Check if multiple files are uploaded or just one

@@ -8,9 +8,11 @@ define('HTTPS_SERVER', 'http://localhost/opencart-final/admin/');
 define('HTTPS_CATALOG', 'http://localhost/opencart-final/');
 
 // DIR
+$store_domain = 'shopgeni';
+define('STORE_DOMAIN', $store_domain);
 define('DIR_APPLICATION', 'C:/xampp/htdocs/opencart-final/admin/');
 define('DIR_SYSTEM', 'C:/xampp/htdocs/opencart-final/system/');
-define('DIR_IMAGE', 'C:/xampp/htdocs/opencart-final/image/');
+define('DIR_IMAGE', 'C:/xampp/htdocs/opencart-final/image/'.STORE_DOMAIN.'/');
 define('DIR_STORAGE', 'C:/xampp/storage-opencart-final/');
 define('DIR_CATALOG', 'C:/xampp/htdocs/opencart-final/catalog/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
@@ -28,7 +30,7 @@ define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'opencart-final');
+define('DB_DATABASE', 'opencart-final24sep20');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
 

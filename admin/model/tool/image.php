@@ -37,11 +37,11 @@ class ModelToolImage extends Model {
 				copy(DIR_IMAGE . $image_old, DIR_IMAGE . $image_new);
 			}
 		}
-
+		
 		if ($this->request->server['HTTPS']) {
-			return HTTPS_CATALOG . 'image/' . $image_new;
+			return HTTPS_CATALOG . SUB_DOMAIN. '/image/' . $image_new;
 		} else {
-			return HTTP_CATALOG . 'image/' . $image_new;
+			return HTTP_CATALOG . SUB_DOMAIN. '/image/' . $image_new;
 		}
 	}
 }
