@@ -6,12 +6,13 @@ define('HTTP_SERVER', 'http://localhost/opencart-final/');
 define('HTTPS_SERVER', 'http://localhost/opencart-final/');
 
 // DIR
-$store_domain = 'shopgeni';
-define('STORE_DOMAIN', $store_domain);
+$store_domain = 'pinky';
+define('SUB_DOMAIN', 'users/'.$store_domain);
 define('DIR_APPLICATION', 'C:/xampp/htdocs/opencart-final/catalog/');
 define('DIR_SYSTEM', 'C:/xampp/htdocs/opencart-final/system/');
-define('DIR_IMAGE', 'C:/xampp/htdocs/opencart-final/image/'.STORE_DOMAIN.'/');
-define('DIR_STORAGE', 'C:/xampp/storage-opencart-final/');
+define('DIR_IMAGE', 'C:/xampp/htdocs/opencart-final/'.SUB_DOMAIN.'/image/');
+define('DIR_STORAGE', 'C:/xampp/htdocs/opencart-final/'.SUB_DOMAIN.'/storage/');
+
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -27,6 +28,6 @@ define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'opencart-final24sep20');
+define('DB_DATABASE', 'shopgeni2');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');

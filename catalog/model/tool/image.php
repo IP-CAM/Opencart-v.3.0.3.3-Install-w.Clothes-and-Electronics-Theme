@@ -43,6 +43,7 @@ class ModelToolImage extends Model {
 		if ($this->request->server['HTTPS']) {
 			return $this->config->get('config_ssl') . SUB_DOMAIN. '/image/' . $image_new;
 		} else {
+			
 			return $this->config->get('config_url') . SUB_DOMAIN. '/image/' . $image_new;
 		}
 	}
