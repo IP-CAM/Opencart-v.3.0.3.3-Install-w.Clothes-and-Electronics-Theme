@@ -515,6 +515,12 @@ class ControllerCatalogProduct extends Controller {
 			$data['error_model'] = '';
 		}
 
+		if (isset($this->error['price'])) {
+			$data['error_price'] = $this->error['price'];
+		} else {
+			$data['error_price'] = '';
+		}
+
 		if (isset($this->error['keyword'])) {
 			$data['error_keyword'] = $this->error['keyword'];
 		} else {
@@ -1188,6 +1194,10 @@ class ControllerCatalogProduct extends Controller {
 
 		if ((utf8_strlen($this->request->post['model']) < 1) || (utf8_strlen($this->request->post['model']) > 64)) {
 			$this->error['model'] = $this->language->get('error_model');
+		}
+
+		if ($this->request->post['price'] < 1) {
+			$this->error['price'] = $this->language->get('error_price');
 		}
 
 		if ($this->request->post['product_seo_url']) {
